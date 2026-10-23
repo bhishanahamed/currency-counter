@@ -58,10 +58,13 @@ export default function BottomNav({ activeTab, onTabSelect, darkMode }) {
               <button
                 key={item.id}
                 type="button"
-                onClick={() => handleItemClick(item.id)}
+                onClick={(e) => {
+                  e.currentTarget.blur();
+                  handleItemClick(item.id);
+                }}
                 aria-label={item.label}
                 aria-current={isActive ? 'page' : undefined}
-                className="group relative flex flex-col items-center justify-center py-1 sm:py-1.5 px-0.5 sm:px-2 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 active:scale-95 transition-all duration-150"
+                className="group relative flex flex-col items-center justify-center py-1 sm:py-1.5 px-0.5 sm:px-2 rounded-xl outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40 active:scale-95 transition-all duration-150"
               >
                 {/* Active Indicator Bar */}
                 {isActive && (
